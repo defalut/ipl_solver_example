@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style type="text/css">
+         table.empty{
+            width:350px;
+            border-collapse:separate;
+            empty-cells:hide;
+         }
+         td.empty{
+            padding:5px;
+            border-style:solid;
+            border-width:1px;
+            border-color:#999999;
+            text-align: center;
+         }
+         th.empty{
+            padding:5px;
+            border-style:solid;
+            border-width:1px;
+            border-color:#999999;
+            text-align: center;
+         }
+      </style>
+
+    <meta charset="UTF-8">
+    <title>
+
+    </title>
+</head>
+<body>
+
+<h1>Input:</h1>
+{{ raw }}
+
+{% if status %}
+  <h1>Result: {{ status }}!</h1>
+{% else %}
+  <h1>Buge!</h1>
+{% endif %}
+
+{% if status=="Optimal" %}
+<h3>{{ out_sum }}</h3>
+
+
+<table class="empty">
+  <thead>
+  <th>°</th>
+  {% for offer in offers %}
+        <th>{{ offer }}</th>
+  {% endfor %}
+  </thead>
+
+  <tbody>
+{% for customer in customers %}
+    <tr>
+        <th>{{ customer }}</th>
+    {% for offer in offers %}
+        {% if lp_vars[customer][offer].varValue == 1 %}<th class="empty">{% else %}<td class="empty">{% endif %}
+        {{ dm[customer][offer] }}
+        {% if lp_vars[customer][offer].varValue == 1 %}</th>{% else %}</td>{% endif %}
+    {% endfor %}
+    </tr>
+{% endfor %}
+  </tbody>
+</table>
+{% endif %}
+
+
+</body>
+</html>

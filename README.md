@@ -81,6 +81,7 @@ End
 
 ## ... and the output
 
+```
 ### Result: Optimal!
 ### 30.00 + 25.00 + 6.00 + 10.00 + 5.00 = 76.00
 
@@ -159,3 +160,4 @@ End
 </tbody>
 
 </table>
+```

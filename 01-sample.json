@@ -1,18 +1,17 @@
 {
-  "offers": ["A", "B", "C", "D", "E"],
+  "offers": ["A", "B", "C"],
+  "customers": ["1", "2", "3"],
   "matrix": [
-    [1, 10, 20, 30, 4, 71],
-    [2, 25, 15, 5, 23, 6],
-    [3, 10, 9, 9, 2, 5]
+    [10, 20, 30],
+    [25, 15, 5],
+    [10, 9, 9]
   ],
-  "matr": {
-    "1": {"A": 10, "B": 20}
-  },
   "constraints": {
     "max_offer_per_customer": 2,
     "max_total_offers": 5,
     "min_offers": {"C": 1},
-    "max_offers": {"A": 2}
+    "max_offers": {"A": 2},
+    "conflicts": []
   }
 }
 

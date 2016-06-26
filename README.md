@@ -78,3 +78,84 @@ x_3_D
 x_3_E
 End
 ```
+
+## ... and the output
+
+### Result: Optimal!
+### 30.00 + 25.00 + 6.00 + 10.00 + 5.00 = 76.00
+
+<table class="empty">
+
+<thead>
+
+<tr>
+
+<th>°</th>
+
+<th>A</th>
+
+<th>B</th>
+
+<th>C</th>
+
+<th>D</th>
+
+<th>E</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<th>1</th>
+
+<td class="empty">10</td>
+
+<td class="empty">20</td>
+
+<th class="empty">30</th>
+
+<td class="empty">4</td>
+
+<td class="empty">7</td>
+
+</tr>
+
+<tr>
+
+<th>2</th>
+
+<th class="empty">25</th>
+
+<td class="empty">15</td>
+
+<td class="empty">5</td>
+
+<td class="empty">23</td>
+
+<th class="empty">6</th>
+
+</tr>
+
+<tr>
+
+<th>3</th>
+
+<th class="empty">10</th>
+
+<td class="empty">9</td>
+
+<td class="empty">9</td>
+
+<td class="empty">2</td>
+
+<th class="empty">5</th>
+
+</tr>
+
+</tbody>
+
+</table>

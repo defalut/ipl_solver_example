@@ -4,7 +4,7 @@ import json
 app = Flask(__name__)
 
 
-def reprocess_input(data):
+def preprocess_input(data):
     offers = data['offers']
     customers = data['customers']
     matrix = data['matrix']
@@ -99,7 +99,7 @@ def solve():
 
     data = json.loads(file_raw)
 
-    reprocess_input(data)
+    preprocess_input(data)
     lp_vars, prob = create_lp(data)
 
     #prob.writeLP("problem.lp")
@@ -108,6 +108,3 @@ def solve():
     out_sum = process_output(data, lp_vars, prob)
 
     return render_template('solver.html', raw=file_raw, lp_vars=lp_vars, dm=data['dm'], offers = data['offers'], customers = data['customers'], status=pulp.LpStatus[prob.status], out_sum = out_sum)
-
-if __name__ == '__main__':
-    app.run(host= '0.0.0.0',debug=True)

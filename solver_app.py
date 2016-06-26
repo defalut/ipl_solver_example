@@ -86,15 +86,6 @@ def process_output(data, lp_vars, prob):
     return " + ".join(winners) + " = %.2f" % pulp.value(prob.objective)
 
 
-@app.route('/salve', methods=['GET', 'POST'])
-def salve():
-    file_raw = request.json
-    print(file_raw)
-    jss = json.loads(file_raw)
-    print(jss['offers'])
-    return "asdf"
-
-
 @app.route('/solve', methods=['GET', 'POST'])
 def solve():
     file_raw = ""
@@ -106,14 +97,12 @@ def solve():
         #process POST input
         file_raw = request.json
 
-    #print(file_raw)
-
     data = json.loads(file_raw)
 
     reprocess_input(data)
     lp_vars, prob = create_lp(data)
 
-    # prob.writeLP("problem.lp")
+    #prob.writeLP("problem.lp")
     prob.solve()
 
     out_sum = process_output(data, lp_vars, prob)

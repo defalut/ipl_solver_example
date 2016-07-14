@@ -1,10 +1,15 @@
 from flask import Flask, request, jsonify, render_template
 from pulp import *
+import pprint
 import json
 app = Flask(__name__)
 
 
 def preprocess_input(data):
+    #if we are too lazy to create customer list...
+    if not 'customers' in data:
+        data['customers'] = list(map(str, list(range(1, len(data['matrix'])+1))))
+
     offers = data['offers']
     customers = data['customers']
     matrix = data['matrix']
@@ -91,7 +96,7 @@ def solve():
     file_raw = ""
     if request.method == "GET":
         #output some usable default
-        file = open('02-sample.json', 'r')
+        file = open('05-sample.json', 'r')
         file_raw = file.read()
     if request.method == "POST":
         #process POST input
@@ -107,4 +112,4 @@ def solve():
 
     out_sum = process_output(data, lp_vars, prob)
 
-    return render_template('solver.html', raw=file_raw, lp_vars=lp_vars, dm=data['dm'], offers = data['offers'], customers = data['customers'], status=pulp.LpStatus[prob.status], out_sum = out_sum)
+    return render_template('solver.html', raw=file_raw, lp_vars=lp_vars, dm=data['dm'], offers = data['offers'], customers = data['customers'], status=pulp.LpStatus[prob.status], out_sum = out_sum, time = prob.solutionTime)
